@@ -8,6 +8,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  * To show off how dependency injection works, this class
@@ -25,11 +26,13 @@ import org.springframework.stereotype.Component;
 @ComponentScan(basePackages = "com.revature.components")
 @Component
 public class ArithmeticPresentationLayer {
-
+    @Autowired
     private Adder adder;
+    @Autowired
     private Multiplier multiplier;
+    @Autowired
     private Squarer squarer;
-
+    
     public void setMultiplier(Multiplier multiplier) {
         this.multiplier = multiplier;
     }
@@ -38,6 +41,7 @@ public class ArithmeticPresentationLayer {
         this.squarer = squarer;
     }
 
+    
     public static void main(String[] args) {
         // Use this main method for manual testing (optional)
         // Create the Spring container
